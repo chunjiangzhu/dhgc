@@ -11,18 +11,18 @@ def read_data(dataset):
     print('dataset: {}'.format(dataset))
     H = HyperGraph()
     if dataset == 'dbpedia':
-        H.read_file_pr('./data/dbpedia/dbpedia-writer_LCC.txt')
+        H.read_file_pr('../data/dbpedia/dbpedia-writer_LCC.txt')
     elif dataset == 'kdd':
-        H.read_file_pr('./data/kdd/dblp_kdd_LCC.txt')
+        H.read_file_pr('../data/kdd/dblp_kdd_LCC.txt')
     elif dataset == 'archive':
-        H.read_file_pr('./data/archive/opsahl-collaboration_LCC.txt')
+        H.read_file_pr('../data/archive/opsahl-collaboration_LCC.txt')
     elif dataset == 'highschool':
         H.read_cornell('highschool')
     elif dataset == 'ubuntu':
         H.read_cornell('ubuntu')
     H.dataset = dataset
     try:
-        os.mkdir('./data/{}/tmp'.format(dataset))
+        os.mkdir('../data/{}/tmp'.format(dataset))
     except:
         pass
 

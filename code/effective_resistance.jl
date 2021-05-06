@@ -54,11 +54,11 @@ end
 
 # There are 3 args: current site index, dataset name, and total number of site
 # Read the adjacency matrix and the paris need to calculate the effective resistance
-filename1 = string("./data/", ARGS[1], "/tmp/sp_A_n", ARGS[2] , "_", ARGS[3], ".mat")
+filename1 = string("../data/", ARGS[1], "/tmp/sp_A_n", ARGS[2] , "_", ARGS[3], ".mat")
 file = matopen(filename1)
 A_sp = read(file, "A_sp")
 
-filename2 = string("./data/", ARGS[1], "/tmp/pairs_n", ARGS[2], "_", ARGS[3], ".mat")
+filename2 = string("../data/", ARGS[1], "/tmp/pairs_n", ARGS[2], "_", ARGS[3], ".mat")
 file = matopen(filename2)
 pairs = read(file, "pairs")
 
@@ -70,7 +70,7 @@ time_diff = time2-time1
 @show time_diff
 
 # save the calculated effective resistance
-filename3 = string("./data/", ARGS[1], "/tmp/rs_n", ARGS[2], "_", ARGS[3],".mat")
+filename3 = string("../data/", ARGS[1], "/tmp/rs_n", ARGS[2], "_", ARGS[3],".mat")
 file = matopen(filename3, "w")
 write(file, "rs", rs)
 close(file)

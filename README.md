@@ -46,7 +46,7 @@ Datasets are from 2 resources:
 
 ### Run experiment
 ```
-python pagerank.py --dataset highschool --num_sites 3 --c 2 
+python pagerank.py --dataset highschool --num_sites 3 --c 5 
 ```
 You can edit the dataset, num_sites and tune parameter c.  
 

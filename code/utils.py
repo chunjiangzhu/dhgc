@@ -4,7 +4,7 @@ import subprocess
 import os
 
 PATH = os.getcwd()
-PageRank_exe = './HyperReplica/HyperReplica/bin/Release/HyperReplica.exe'
+PageRank_exe = '../HyperReplica/HyperReplica/bin/Release/HyperReplica.exe'
 
 def check_connect(A):
     graph = nx.from_numpy_matrix(A)
@@ -32,7 +32,7 @@ def calculate_efficiency(H, H1, full_cond, sp_cond, full_t, sp_t):
 
 def call_cs(dataset, sp, id, c, num_sites, verbose=True):
     surffix = 'c{}_n{}'.format(c, num_sites)
-    path1 = '{}/data/{}/tmp/{}_{}{}.txt'.format(PATH, dataset, dataset, sp, surffix)
+    path1 = '{}/../data/{}/tmp/{}_{}{}.txt'.format(PATH, dataset, dataset, sp, surffix)
     output1 = subprocess.check_output("mono {} {} {}".format(PageRank_exe, path1, id), shell=True)
     contents = (str(output1)).split('\\n')
     cond1 = float(contents[1].split(':')[1])
