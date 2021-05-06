@@ -1,4 +1,4 @@
-### Introduction
+### Summary
 
 This is the code for Communication Efficient Distributed Hypergraph Clustering, SIGIR 2021.
 It has been tested on Ubuntu 16.04.7 LTS and Mac OS Big Sur Version 11.1.
