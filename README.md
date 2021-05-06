@@ -40,9 +40,13 @@ sudo apt install mono-runtime
 For Mac:    
 https://www.mono-project.com/download/stable/#download-mac  
 
+### Dataset
+Data is from 2 resources:  
+[Cornnel](https://www.cs.cornell.edu/~arb/data/) and [Hypergraph Clustering Based on PageRank](https://github.com/atsushi-miyauchi/Hypergraph_clustering_based_on_PageRank) in [KDD'21](https://dl.acm.org/doi/10.1145/3394486.3403248)
+
 ### Run experiment
 ```
-python pagerank.py --dataset kdd --c 2  --num_sites 3
+python pagerank.py --dataset kdd --num_sites 3 --c 2 
 ```
 You can edit the dataset, num_sites and tune parameter c.  
 
