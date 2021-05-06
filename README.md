@@ -1,4 +1,4 @@
-### Summary
+### About
 
 This is the code for Communication Efficient Distributed Hypergraph Clustering, SIGIR 2021.
 It has been tested on Ubuntu 16.04.7 LTS and Mac OS Big Sur Version 11.1.
@@ -51,7 +51,7 @@ python pagerank.py --dataset highschool --num_sites 3 --c 2
 You can edit the dataset, num_sites and tune parameter c.  
 
 #### Suggestions
-The program includes some disk I/O. If the program was down in the middle of the process, some of the generated files may not be complete. Please remove the ./dataset/DATASET/tmp folder and then re-run the program.  
+The program includes some disk I/O. If the program was down in the middle of the process, some of the generated files may not be complete. Please remove the ./data/DATASET/tmp folder and then re-run the program.  
 
 ### Acknowledgement
 The code for conductance calculation is from [Hypergraph_clustering_based_on_PageRank](https://github.com/atsushi-miyauchi/Hypergraph_clustering_based_on_PageRank)
