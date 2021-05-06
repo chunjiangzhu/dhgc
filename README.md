@@ -46,9 +46,12 @@ Datasets are from 2 resources:
 
 ### Run experiment
 ```
-python pagerank.py --dataset kdd --num_sites 3 --c 2 
+python pagerank.py --dataset highschool --num_sites 3 --c 2 
 ```
 You can edit the dataset, num_sites and tune parameter c.  
+
+#### Suggestions
+The program includes some disk I/O. If the program was down in the middle of the process, some of the generated files may not be complete. Please remove the ./dataset/DATASET/tmp folder and then re-run the program.  
 
 ### Acknowledgement
 The code for conductance calculation is from [Hypergraph_clustering_based_on_PageRank](https://github.com/atsushi-miyauchi/Hypergraph_clustering_based_on_PageRank)
