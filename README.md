@@ -5,7 +5,7 @@ It has been tested on Ubuntu 16.04.7 LTS and Mac OS Big Sur Version 11.1.
 
 
 ### Enviroment Set-up
-#### install python packages
+#### install Python packages
 ```
 $ pip install numpy, scipy, pandas, h5py, networks, seaborn
 ```
