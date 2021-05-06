@@ -1,0 +1,9 @@
+/Users/qinqingliu/Projects/HyperReplica/HyperReplica/bin/Debug/HyperReplica.exe
+/Users/qinqingliu/Projects/HyperReplica/HyperReplica/bin/Debug/HyperReplica.pdb
+/Users/qinqingliu/Projects/HyperReplica/HyperReplica/bin/Debug/MathNet.Numerics.dll
+/Users/qinqingliu/Projects/HyperReplica/HyperReplica/bin/Debug/MathNet.Numerics.xml
+/Users/qinqingliu/Projects/HyperReplica/HyperReplica/obj/Debug/HyperReplica.csprojAssemblyReference.cache
+/Users/qinqingliu/Projects/HyperReplica/HyperReplica/obj/Debug/HyperReplica.csproj.CoreCompileInputs.cache
+/Users/qinqingliu/Projects/HyperReplica/HyperReplica/obj/Debug/HyperReplica.csproj.CopyComplete
+/Users/qinqingliu/Projects/HyperReplica/HyperReplica/obj/Debug/HyperReplica.exe
+/Users/qinqingliu/Projects/HyperReplica/HyperReplica/obj/Debug/HyperReplica.pdb

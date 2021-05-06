@@ -1,10 +1,10 @@
-from hypergraph import *
 import time
 import math
-import numpy as np
 import os
+import numpy as np
 from numpy.random import default_rng
 from utils import *
+from hypergraph import *
 
 def read_data(dataset):
     print('dataset: {}'.format(dataset))

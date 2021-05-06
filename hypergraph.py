@@ -10,7 +10,6 @@ import scipy.linalg
 from scipy import sparse
 from scipy.sparse import csr_matrix
 from scipy.io import loadmat, savemat
-
 from utils import *
 
 
@@ -111,7 +110,7 @@ class HyperGraph():
                 fid.write(line)
 
     def read_cornell(self, dataset):
-        elif dataset == 'highschool':
+        if dataset == 'highschool':
             nverts_file = './highschool/contact-high-school-nverts.txt'
             simplex_file = './highschool/contact-high-school-simplices.txt'
         elif dataset == 'ubuntu':

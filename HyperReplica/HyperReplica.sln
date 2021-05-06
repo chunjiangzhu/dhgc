@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.808.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperReplica", "HyperReplica\HyperReplica.csproj", "{F821B2C2-09C0-435B-B345-BE2918EC7558}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F821B2C2-09C0-435B-B345-BE2918EC7558}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{F821B2C2-09C0-435B-B345-BE2918EC7558}.Debug|anycpu.Build.0 = Debug|anycpu
+		{F821B2C2-09C0-435B-B345-BE2918EC7558}.Release|anycpu.ActiveCfg = Release|anycpu
+		{F821B2C2-09C0-435B-B345-BE2918EC7558}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13A462D9-AB55-47A5-B9A2-AD1FCE662229}
+	EndGlobalSection
+EndGlobal

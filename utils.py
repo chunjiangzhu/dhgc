@@ -6,8 +6,7 @@ import matplotlib.pyplot as plt
 import os
 
 PATH = os.getcwd()
-# PageRank_exe = './Projects/HyperReplica/HyperReplica/bin/Release/HyperReplica.exe'
-PageRank_exe = './HyperReplica.exe'
+PageRank_exe = './HyperReplica/HyperReplica/bin/Release/HyperReplica.exe'
 
 def check_connect(A):
     graph = nx.from_numpy_matrix(A)
