@@ -98,7 +98,7 @@ class HyperGraph():
             self.ID_rev[i] = edge
 
     def write(self, surffix = ''):
-        with open('{}_{}.txt'.format(self.dataset, surffix), 'w') as fid:
+        with open('./dataset/{}/tmp/{}_{}.txt'.format(self.dataset, self.dataset, surffix), 'w') as fid:
             for i in range(self.m()):
                 line = ''
                 edge = self.edges[i]
@@ -111,11 +111,11 @@ class HyperGraph():
 
     def read_cornell(self, dataset):
         if dataset == 'highschool':
-            nverts_file = './highschool/contact-high-school-nverts.txt'
-            simplex_file = './highschool/contact-high-school-simplices.txt'
+            nverts_file = './dataset/highschool/contact-high-school-nverts.txt'
+            simplex_file = './dataset/highschool/contact-high-school-simplices.txt'
         elif dataset == 'ubuntu':
-            nverts_file = './ubuntu/tags-ask-ubuntu-nverts.txt'
-            simplex_file = './ubuntu/tags-ask-ubuntu-simplices.txt'
+            nverts_file = './dataset/ubuntu/tags-ask-ubuntu-nverts.txt'
+            simplex_file = './dataset/ubuntu/tags-ask-ubuntu-simplices.txt'
         edge_num = np.array(pd.read_csv(nverts_file, header = None)).reshape(-1)
         edge_num_accumulate = np.cumsum(edge_num)
 
@@ -146,7 +146,6 @@ class HyperGraph():
         self.edges = edges
         self.weights = weights
         self.incident_edges = []
-        print(vertex_num)
         for v in range(vertex_num):
             self.incident_edges.append([])
         for i in range(len(edges)):
@@ -200,9 +199,10 @@ class HyperGraph():
 
     def split_graph_sites(self, num_sites):
         file = '{}_{}.obj'.format(self.dataset, num_sites)
-        files = os.listdir('./')
+        path = './dataset/{}/tmp'.format(self.dataset)
+        files = os.listdir(path)
         if file in files:
-            filehandler = open(file, 'rb')
+            filehandler = open(os.path.join(path, file), 'rb')
             results = pickle.load(filehandler)
             return results
 
@@ -224,7 +224,7 @@ class HyperGraph():
                 site_hypergraph.ID[tuple(edge)] = j
                 site_hypergraph.ID_rev[j] = edge
             results.append(site_hypergraph)
-        file_pi = open(file, 'wb')
+        file_pi = open(os.path.join(path, file), 'wb')
         pickle.dump(results, file_pi)
         return results
 
@@ -236,9 +236,10 @@ class HyperGraph():
         total_num_v = 0
         max_time = 0
         for i,h in enumerate(graph_sites):
-            load = h.sparsify_stage1('{}'.format(i), num_sites)
+            load = h.sparsify_stage1(num_sites, '{}'.format(i))
             if not load:
-                output = subprocess.check_output("julia effective_resistance.jl {} {} {}".format(i, self.dataset, num_sites), shell=True)
+                output = subprocess.check_output("julia effective_resistance.jl {} {} {}".format(self.dataset, num_sites, i), shell=True)
+                # print(output)
                 time_re = float((str(output).split("\\n")[1]).split('=')[1])
             else:
                 time_re = 0
@@ -311,27 +312,26 @@ class HyperGraph():
             r = max(len(edge), r)
         return r
 
-    def sparsify_stage1(self, file_surfix, num_sites):
+    def sparsify_stage1(self, num_sites, file_surfix):
         # In this stage, we save the associated graph and the pairs that need to calculoate the effective resistance
         # If the graph have been processed before, we directly return.
-        files = os.listdir('./{}'.format(self.dataset))
-        filename = 'pairs_{}_n{}.mat'.format(file_surfix, num_sites)
+        files = os.listdir('./dataset/{}/tmp'.format(self.dataset))
+        filename = 'pairs_n{}_{}.mat'.format(num_sites, file_surfix)
         self.pairs = self.pairs_for_er()
-
         if filename in files:
             return True
 
         A = self.associated_graph()
         A_sp = sparse.csr_matrix(A)
-        savemat('./{}/sp_A_{}_n{}.mat'.format(self.dataset, file_surfix, num_sites), {'A_sp': A_sp})
-        savemat('./{}/pairs_{}_n{}.mat'.format(self.dataset, file_surfix, num_sites), {'pairs': np.array(self.pairs)})
+        savemat('./dataset/{}/tmp/sp_A_n{}_{}.mat'.format(self.dataset, num_sites, file_surfix), {'A_sp': A_sp})
+        savemat('./dataset/{}/tmp/pairs_n{}_{}.mat'.format(self.dataset, num_sites, file_surfix), {'pairs': np.array(self.pairs)})
         return False
 
     def sparsify_stage2(self, c, eps, file_surfix, num_sites):
         # sparsify the graph according to the effective resistance calculated by julia
         # c is parameter need to be tuned
         # eps is the quality of the sparsifier
-        content = h5py.File('./{}/rs_{}_n{}.mat'.format(self.dataset, file_surfix, num_sites))
+        content = h5py.File('./dataset/{}/tmp/rs_n{}_{}.mat'.format(self.dataset, num_sites, file_surfix))
         rs = content['rs']
         pairs = self.pairs
 

@@ -5,11 +5,11 @@ It has been tested on Ubuntu 16.04.7 LTS and Mac OS Big Sur Version 11.1.
 
 
 ### Enviroment Set-up
-#### install Python packages
+#### Install Python packages
 ```
-$ pip install numpy, scipy, pandas, h5py, networkx, seaborn
+$ pip install numpy, scipy, pandas, h5py, networkx
 ```
-#### install Julia packages
+#### Install Julia packages
 ```
 $ julia
 julia> using Pkg
@@ -17,13 +17,13 @@ julia> Pkg.add("Laplacians")
 julia> Pkg.add("LinearAlgebra")
 julia> Pkg.add("MAT")
 ```
-Replace the ~/.julia/packages/Laplacians/K6Pgk/src/solverInterface.jl with solverInterface.jl in GitHub  
+Replace the ~/.julia/packages/Laplacians/K6Pgk/src/solverInterface.jl with Laplacians/solverInterface.jl in GitHub  
 
 
-#### compile c\#
-Use the precompiled .exe file in ./HyperReplica/HyperReplica/bin/Release/HyperReplica.exe, or compile by yourself with Visuo Studio. 
+#### Compile c\#
+Use the precompiled .exe file in ./HyperReplica/HyperReplica/bin/Release/HyperReplica.exe, or compile by yourself with Visual Studio. This is for conductance calculation. 
 
-#### install mono 
+#### Install mono 
 mono is used to call the compiled .exe file for conductance calculation.   
   
 For linux:  
@@ -33,6 +33,8 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328
 sudo apt install apt-transport-https ca-certificates
 echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
 sudo apt update
+sudo apt install mono-devel
+sudo apt install mono-runtime
 ```
 
 For Mac:    
@@ -40,7 +42,7 @@ https://www.mono-project.com/download/stable/#download-mac
 
 ### Run experiment
 ```
-python pagerank.py
+python pagerank.py --dataset kdd --c 2  --num_sites 3
 ```
 You can edit the dataset, num_sites and tune parameter c.  
 

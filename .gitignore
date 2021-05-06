@@ -1,2 +1,9 @@
 
 highschool/.DS_Store
+__pycache__/hypergraph.cpython-37.pyc
+*.pyc
+dataset/.DS_Store
+dataset/archive/.DS_Store
+dataset/dbpedia/.DS_Store
+dataset/highschool/.DS_Store
+dataset/kdd/.DS_Store
