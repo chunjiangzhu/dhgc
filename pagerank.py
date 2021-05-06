@@ -54,7 +54,8 @@ H1.write('sp' + surffix)
 
 rng = default_rng()
 numbers = rng.choice(H.n(), size=30, replace=False)
-print('Vertex index are {}'.format(numbers))
+print('Randomly sample 30 verticies to calculate the conductance.')
+print('The index of those verticies are {}'.format(numbers))
 
 full_cond, full_t = [], []
 sp_cond, sp_t = [], []
@@ -63,13 +64,13 @@ verbose = True if H.m() > 10000 else False
 for i,number in enumerate(numbers):
     if verbose:
         print('{}th V_init is {}'.format(i, number))
-
-    print('Original Graph')
+        print('Start work on Original Graph')
     cond, t = call_cs(dataset, '', number, c, num_sites, verbose)
     full_cond.append(cond)
     full_t.append(t)
 
-    print('Sparsified Graph')
+    if verbose:
+        print('Start work on Sparsified Graph')
     if len(H1.incident_edges[number]) == 0:
         print('Isolated point, conductance set as 0.')
         sp_cond.append(0)
@@ -79,9 +80,9 @@ for i,number in enumerate(numbers):
         sp_cond.append(cond)
         sp_t.append(t)
 
-print('Full Graph conductance: {}'.format(full_cond))
-print('Sparse Graph conductance: {}'.format(sp_cond))
-print('Full time: {}'.format(full_t))
-print('Sparse time: {}'.format(sp_t))
+print('Original Graph conductance values: {}'.format(full_cond))
+print('Sparse Graph conductance values: {}'.format(sp_cond))
+print('Time spent to calculate the conductantce in Original Graph: {}'.format(full_t))
+print('Time spent to calculate the conductantce in Sparse Graph: {}'.format(sp_t))
 
 calculate_efficiency(H, H1, full_cond, sp_cond, full_t, sp_t)

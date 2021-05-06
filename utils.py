@@ -26,10 +26,10 @@ def calculate_efficiency(H, H1, full_cond, sp_cond, full_t, sp_t):
     full_t, sp_t = np.array(full_t), np.array(sp_t)
     ratio_comm2 =  ((H1.num_v_in_hyperedges())/H.num_v_in_hyperedges())
     ratio_abs_cond = (abs(full_cond - sp_cond) / full_cond).mean()
-    print('Number of edges are {}, {}'.format(H.m(), H1.m()))
-    print('Communication Costs are {}, {}'.format(H.num_v_in_hyperedges(), H1.num_v_in_hyperedges()))
+    print('Number of edges in Original Graph is {}, in Sparse Graph is {}'.format(H.m(), H1.m()))
+    print('Communication Costs in Original Graph is {}, in Sparse Graph is {}'.format(H.num_v_in_hyperedges(), H1.num_v_in_hyperedges()))
     print('Ratio of Communication Cost is {}'.format( ratio_comm2))
-    print('Conductance Quality abs: {}'.format(ratio_abs_cond))
+    print('Ratio of Conductance Quality is {}'.format(ratio_abs_cond))
 
 
 def call_cs(dataset, sp, id, c, num_sites, verbose=True):

@@ -66,7 +66,7 @@ time1 = time()
 rs = resistance(A_sp, pairs; ep=0.3, matrixConcConst=4.0, JLfac=4.0)
 time2 = time()
 time_diff = time2-time1
-@show time_diff
+# @show time_diff
 
 # save the calculated effective resistance
 filename3 = string("./", ARGS[2], "/rs_", ARGS[1], "_n", ARGS[3],".mat")
