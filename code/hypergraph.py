@@ -262,8 +262,8 @@ class HyperGraph():
         return H
 
     def origin_stat(self):
-        print('Number of Vertex is {}'.format(self.n()))
-        print('Number of Hyperedge is {}'.format(self.m()))
+        print('Number of Vertices is {}'.format(self.n()))
+        print('Number of Hyperedges is {}'.format(self.m()))
         print('Total Number of Vertices in Hyperedges is {}'.format(self.num_v_in_hyperedges()))
 
     def merge_graphs(self, graphs):

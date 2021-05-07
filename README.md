@@ -55,4 +55,4 @@ You can edit the dataset, num_sites and tune parameter c.
 The program includes some disk I/O. If the program was down in the middle of the process, some of the generated files may not be complete. Please remove the ./data/DATASET/tmp folder and then re-run the program.  
 
 ### Acknowledgement
-The code for conductance calculation is from [Hypergraph_clustering_based_on_PageRank](https://github.com/atsushi-miyauchi/Hypergraph_clustering_based_on_PageRank)
+The code for conductance calculation (./HyperReplica) is from [Hypergraph_clustering_based_on_PageRank](https://github.com/atsushi-miyauchi/Hypergraph_clustering_based_on_PageRank)
