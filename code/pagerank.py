@@ -26,16 +26,22 @@ def read_data(dataset):
     except:
         pass
 
+    print('Input Hypergraph G:')
     H.origin_stat()
     return H
 
 def sparsify_data(H, sparsify = 'site', c = 50, eps= 0.1, num_sites = 5):
+    print('Parameter Settings:')
     print('c={}, eps={}, num_sites={}'.format(c, eps, num_sites))
+
     dataset = H.dataset
     if sparsify == 'site':
+        print('\nSparsifying Local Hypergraphs:')
         H = H.sparsify_by_sites(num_sites, c, eps)
     else:
         print('Not sparsify')
+
+    print('Union of Sparsifiers H in the Coordinator:')
     H.origin_stat()
     H.dataset = dataset
     return H
@@ -63,9 +69,10 @@ if __name__ == "__main__":
 
     rng = default_rng()
     numbers = rng.choice(H.n(), size=30, replace=False)
-    print('Randomly sample 30 verticies to calculate the conductance.')
-    print('The index of those verticies are {}'.format(list(numbers)))
 
+    print('\nRandomly sample 30 vertices to perform local clustering.')
+    print('Vertex Indices: {}'.format(list(numbers)))
+    print('Performing Clustering...')
 
     full_cond, full_t = [], []
     sp_cond, sp_t = [], []
@@ -90,9 +97,11 @@ if __name__ == "__main__":
             sp_cond.append(cond)
             sp_t.append(t)
 
-    print('Original Graph conductance values: {}'.format(full_cond))
-    print('Sparse Graph conductance values: {}'.format(sp_cond))
-    print('Time spent to calculate the conductantce in Original Graph: {}'.format(full_t))
-    print('Time spent to calculate the conductantce in Sparse Graph: {}'.format(sp_t))
+    print('Finish Clustering.')
+    print('Clustering Quality:')
+    print('Conductance Values in G: {}'.format(list(np.around(full_cond, decimals=4))))
+    print('Conductance Values in H: {}'.format(list(np.around(sp_cond, decimals=4))))
+    print('Clustering Time (second) in G: {}'.format(list(np.around(full_t, decimals=2))))
+    print('Clustering Time (second) in H: {}'.format(list(np.around(sp_t, decimals=2))))
     print('---------')
     calculate_efficiency(H, H1, full_cond, sp_cond, full_t, sp_t)

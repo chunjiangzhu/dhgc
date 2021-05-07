@@ -257,14 +257,14 @@ class HyperGraph():
             sparse_graph_sites.append(h_sp)
         H = self.merge_graphs(sparse_graph_sites)
         H.dataset = self.dataset
-        print('Total time for Sparsifier is {}'.format(total_time))
-        print('Max time for Sparsifier is {}'.format(max_time))
+        print('Total time of Calculating Sparsifiers is {:.2f}s'.format(total_time))
+        print('Max Time of Calculating Sparsifiers is {:.2f}s'.format(max_time))
         return H
 
     def origin_stat(self):
-        print('Total Number of Vertex is {}'.format(self.n()))
-        print('Total Number of Hyperedge is {}'.format(self.m()))
-        print('Total Number of vertex in Hyperedge is {}'.format(self.num_v_in_hyperedges()))
+        print('Number of Vertex is {}'.format(self.n()))
+        print('Number of Hyperedge is {}'.format(self.m()))
+        print('Total Number of Vertices in Hyperedges is {}'.format(self.num_v_in_hyperedges()))
 
     def merge_graphs(self, graphs):
         H = HyperGraph()
